@@ -1,15 +1,18 @@
 var cacheStore = {};
- 
-function Cache() {
-    var err;
-    console.log('cache it')
 
-    var finalize = function () {
-        console.log(JSON.stringify('error = ' + err))
-        console.log(JSON.stringify(cacheStore))
-    }
+function CacheObj() {
+    return new Cache();
 }
 
+function Cache() {
+    var err = null;
+}
+
+Cache.prototype.finalize = function () {
+    console.log(JSON.stringify('error = ' + this.err))
+    console.log(JSON.stringify(cacheStore))
+    this.err = null;
+}
 
 Cache.prototype.set = function (key, value) {
 
@@ -17,7 +20,7 @@ Cache.prototype.set = function (key, value) {
         this.err = 'key is needed!';
     }
 
-    if(cacheStore[key]){
+    if (cacheStore[key]) {
         this.err = 'key = ' + key + ' already exist'
     }
 
@@ -33,12 +36,11 @@ Cache.prototype.get = function (key) {
         this.err = 'key is needed!';
     }
 
-    if(!cacheStore[key]){
-        this.err = 'key = ' + key + ' already exist'
+    if (!cacheStore[key]) {
+        this.err = 'key = ' + key + ' not exist'
     }
 
-    cacheStore[key] = value;
     this.finalize();
 }
 
-module.exports = Cache;
+module.exports = CacheObj;
