@@ -1,5 +1,5 @@
 var cacheStore = {};
-
+ 
 function Cache() {
     var err;
     console.log('cache it')
