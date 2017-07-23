@@ -1,3 +1,5 @@
+'use strict'
+
 var cacheStore = {};
 
 function CacheObj() {
@@ -5,23 +7,27 @@ function CacheObj() {
 }
 
 function Cache() {
-    var err = null;
 }
 
 Cache.prototype.finalize = function () {
-    console.log(JSON.stringify('error = ' + this.err))
     console.log(JSON.stringify(cacheStore))
-    this.err = null;
+}
+
+Cache.prototype.error = function (err) {
+
+    console.log(err);
+    return err;
 }
 
 Cache.prototype.set = function (key, value) {
 
-    if (!key) {
-        this.err = 'key is needed!';
-    }
+    var err;
 
-    if (cacheStore[key]) {
-        this.err = 'key = ' + key + ' already exist'
+    if (!key) {
+        err = 'key is needed!';
+    }
+    if (err) {
+        return this.error(err);
     }
 
     cacheStore[key] = value;
@@ -32,12 +38,20 @@ Cache.prototype.set = function (key, value) {
 
 Cache.prototype.get = function (key) {
 
+
+    var err;
+
+
     if (!key) {
-        this.err = 'key is needed!';
+        err = 'key is needed!';
     }
 
     if (!cacheStore[key]) {
-        this.err = 'key = ' + key + ' not exist'
+        err = 'key = ' + key + ' not exist'
+    }
+
+    if (err) {
+        return this.error(err);
     }
 
     this.finalize();
