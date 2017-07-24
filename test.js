@@ -1,6 +1,8 @@
-var cache = require('./index')();
 
-cache.set('key1', 'value1');
-cache.get('key2');
-cache.set('key2', 'value2');
 
+
+var test1 = require('./test1');
+var test2 = require('./test2');
+
+test1();
+test2();

@@ -9,16 +9,6 @@ function CacheObj() {
 function Cache() {
 }
 
-Cache.prototype.finalize = function () {
-    console.log(JSON.stringify(cacheStore))
-}
-
-Cache.prototype.error = function (err) {
-
-    console.log(err);
-    return err;
-}
-
 Cache.prototype.set = function (key, value) {
 
     var err;
@@ -38,23 +28,27 @@ Cache.prototype.set = function (key, value) {
 
 Cache.prototype.get = function (key) {
 
+    // if (!key) {
+    //     err = 'key is needed!';
+    // }
+    var value = cacheStore[key];
 
-    var err;
+    return cacheStore[key];
+}
 
 
-    if (!key) {
-        err = 'key is needed!';
+function logJSONString(log) {
+    var jsonString;
+    try {
+        console.log(JSON.stringify(log));
+    } catch (ex) {
+        console.log(ex)
     }
 
-    if (!cacheStore[key]) {
-        err = 'key = ' + key + ' not exist'
-    }
+}
 
-    if (err) {
-        return this.error(err);
-    }
-
-    this.finalize();
+function log(log) {
+    console.log(log);
 }
 
 module.exports = CacheObj;
