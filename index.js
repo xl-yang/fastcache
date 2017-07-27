@@ -9,46 +9,21 @@ function CacheObj() {
 function Cache() {
 }
 
-Cache.prototype.set = function (key, value) {
-
-    var err;
-
-    if (!key) {
-        err = 'key is needed!';
-    }
-    if (err) {
-        return this.error(err);
-    }
-
-    cacheStore[key] = value;
-    this.finalize();
-
-}
-
 
 Cache.prototype.get = function (key) {
-
-    // if (!key) {
-    //     err = 'key is needed!';
-    // }
     var value = cacheStore[key];
+    return value;
+}
 
-    return cacheStore[key];
+Cache.prototype.set = function (key, value) {
+    cacheStore[key] = value;
+}
+
+// return cacheStore object that contains all the keys and values 
+Cache.prototype.all = function () {
+    return cacheStore;
 }
 
 
-function logJSONString(log) {
-    var jsonString;
-    try {
-        console.log(JSON.stringify(log));
-    } catch (ex) {
-        console.log(ex)
-    }
-
-}
-
-function log(log) {
-    console.log(log);
-}
 
 module.exports = CacheObj;
