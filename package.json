@@ -1,1 +1,16 @@
-{}
+{
+    "name": "fastcache",
+    "version": "0.1",
+    "author": "XL Yang",
+    "description": "lightweight in-memory cache for NodeJS",
+    "keywords": [
+        "cache",
+        "light",
+        "memory"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/xl-yang/fastcache"
+    },
+    "license": "MIT"
+}

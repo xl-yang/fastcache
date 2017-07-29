@@ -2,13 +2,8 @@
 
 var cacheStore = {};
 
-function CacheObj() {
-    return new Cache();
-}
-
 function Cache() {
 }
-
 
 Cache.prototype.get = function (key) {
     var value = cacheStore[key];
@@ -19,11 +14,13 @@ Cache.prototype.set = function (key, value) {
     cacheStore[key] = value;
 }
 
+Cache.prototype.del = function (key) {
+    delete cacheStore[key];
+}
+
 // return cacheStore object that contains all the keys and values 
 Cache.prototype.all = function () {
     return cacheStore;
 }
 
-
-
-module.exports = CacheObj;
+module.exports = new Cache();
