@@ -23,4 +23,8 @@ Cache.prototype.all = function () {
     return cacheStore;
 }
 
+Cache.prototype.reset = function () {
+    cacheStore = {};
+}
+
 module.exports = new Cache();

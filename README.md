@@ -1,18 +1,21 @@
 # fastcache
 A lightweight in-memory cache for Node.js
 
-## how to use
+## Installing
+
+```
 npm install --save fastcache
+```
+
+## Usage
+
+```
 cache = require('fastcache');
 
-## save key/value to cache
-cache.set('key', 'value');
+cache.set('key', 'value'); // save to cache
+value = cache.get('key'); // query from cache, return undefined if no match
+cache.del('key'); // delete from cache
+all = cache.all(); // return all contents in cache
+```
 
-## get from cache
-value = cache.get('key');
-
-## delete from cache
-cache.del('key');
-
-## show all content in cache
-all = cache.all();
+Enjoy!
