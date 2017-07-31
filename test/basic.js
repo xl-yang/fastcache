@@ -11,4 +11,4 @@ cache.del('k');
 assert.equal(cache.get('k'), undefined);
 
 cache.reset();
-assert.equal(JSON.stringify(cache.all()), '{}')
+assert.equal(JSON.stringify(cache.all()), '{}');
