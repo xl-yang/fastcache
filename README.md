@@ -1,5 +1,5 @@
 # fastcache
-An easy-to-use lightweight in-memory cache for Node.js
+Easy lightweight in-memory cache for Node.js
 
 ## Installing
 

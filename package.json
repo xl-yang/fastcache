@@ -2,7 +2,7 @@
     "name": "fastcache",
     "version": "0.0.1",
     "author": "XL Yang",
-    "description": "lightweight in-memory cache for NodeJS",
+    "description": "Easy lightweight in-memory cache for NodeJS",
     "keywords": [
         "cache",
         "light",
